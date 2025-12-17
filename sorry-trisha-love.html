@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>I'm Sorry Trisha ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffd6e8, #fff1f7);
+  font-family: 'Comic Sans MS', cursive;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.card {
+  position: absolute;
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  cursor: move;
+}
+
+.editable {
+  outline: none;
+}
+
+.heart {
+  font-size: 40px;
+  text-align: center;
+}
+
+.big-heart {
+  font-size: 70px;
+  text-align: center;
+}
+
+.sparkle {
+  font-size: 30px;
+}
+
+button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  background: #ff4d88;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ff2f73;
+}
+
+.floating {
+  animation: float 6s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-25px); }
+  100% { transform: translateY(0); }
+}
+
+.love-bg span {
+  position: absolute;
+  font-size: 20px;
+  animation: rise 10s infinite linear;
+}
+
+@keyframes rise {
+  0% { bottom: -10%; opacity: 0; }
+  50% { opacity: 1; }
+  100% { bottom: 110%; opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <!-- Apology Card -->
+  <div class="card floating" style="top:15%; left:10%;">
+    <h1 class="editable" contenteditable="true">I'm Sorry, Trisha 😔</h1>
+    <p class="editable" contenteditable="true">
+      Trisha, my heart belongs to you ❤️<br>
+      I promise to do better and love you harder 💕
+    </p>
+  </div>
+
+  <!-- Love Letter -->
+  <div class="card floating" style="top:40%; left:5%;">
+    <h3 class="editable" contenteditable="true">💌 A Little Love Note</h3>
+    <p class="editable" contenteditable="true">
+      Every heartbeat of mine whispers your name.
+      Please forgive me and hold my hand again 🥺💖
+    </p>
+  </div>
+
+  <!-- Hearts -->
+  <div class="card floating" style="top:30%; left:60%;">
+    <div class="big-heart editable" contenteditable="true">💖</div>
+    <div class="heart editable" contenteditable="true">❤️💗❤️</div>
+  </div>
+
+  <!-- Sparkles -->
+  <div class="card floating" style="top:65%; left:55%;">
+    <div class="sparkle editable" contenteditable="true">✨✨✨</div>
+  </div>
+
+  <!-- Button -->
+  <div class="card floating" style="top:75%; left:25%;">
+    <button onclick="forgive()">Forgive Me? 🥺💘</button>
+  </div>
+
+  <!-- Floating Love Background -->
+  <div class="love-bg">
+    <span style="left:10%;">❤️</span>
+    <span style="left:30%;">💖</span>
+    <span style="left:50%;">💗</span>
+    <span style="left:70%;">💘</span>
+    <span style="left:90%;">✨</span>
+  </div>
+
+</div>
+
+<script>
+let dragged = null;
+let offsetX = 0;
+let offsetY = 0;
+
+document.querySelectorAll('.card').forEach(card => {
+  card.onmousedown = e => {
+    dragged = card;
+    offsetX = e.offsetX;
+    offsetY = e.offsetY;
+  };
+});
+
+document.onmousemove = e => {
+  if (dragged) {
+    dragged.style.left = (e.pageX - offsetX) + 'px';
+    dragged.style.top = (e.pageY - offsetY) + 'px';
+  }
+};
+
+document.onmouseup = () => dragged = null;
+
+function forgive() {
+  alert("YAY!! 💖 Thank you for forgiving me, Trisha 🥰 I love you!");
+}
+</script>
+
+</body>
+</html>
